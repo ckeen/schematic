@@ -1,0 +1,178 @@
+/*
+ * Layout and Typography
+ *
+ * Lifted shamelessly from jashkenas' original docco stylesheet.
+ */
+
+body {
+  color: #252519;
+  margin: 0; padding: 0;
+}
+a {
+  color: #261a3b;
+}
+a:visited {
+  color: #261a3b;
+}
+p {
+  margin: 0 0 15px 0;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px 0 15px 0;
+}
+h1 {
+  margin-top: 40px;
+}
+#container {
+  position: relative;
+}
+#background {
+  position: fixed;
+  top: 0; left: 525px; right: 0; bottom: 0;
+  background: #f5f5ff;
+  border-left: 1px solid #e5e5ee;
+  z-index: -1;
+}
+#jump_to, #jump_page {
+  background: white;
+  -webkit-box-shadow: 0 0 25px #777; -moz-box-shadow: 0 0 25px #777;
+  -webkit-border-bottom-left-radius: 5px; -moz-border-radius-bottomleft: 5px;
+  font: 10px Arial;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: right;
+}
+#jump_to, #jump_wrapper {
+  position: fixed;
+  right: 0; top: 0;
+  padding: 5px 10px;
+}
+#jump_wrapper {
+  padding: 0;
+  display: none;
+}
+#jump_to:hover #jump_wrapper {
+  display: block;
+}
+#jump_page {
+  padding: 5px 0 3px;
+  margin: 0 0 25px 25px;
+}
+#jump_page .source {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-top: 1px solid #eee;
+}
+#jump_page .source:hover {
+  background: #f5f5ff;
+}
+#jump_page .source:first-child {
+}
+table td {
+  border: 0;
+  outline: 0;
+}
+td.docs, th.docs {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif;
+  font-size: 15px;
+  line-height: 22px;
+  max-width: 450px;
+  min-width: 450px;
+  min-height: 5px;
+  padding: 0px 25px 0px 50px;
+  overflow-x: hidden;
+  vertical-align: top;
+  text-align: left;
+}
+.docs pre {
+  margin: 15px 0 15px;
+  padding-left: 15px;
+}
+.docs p tt, .docs p code {
+  background: #f8f8ff;
+  border: 1px solid #dedede;
+  font-size: 12px;
+  padding: 0 0.2em;
+}
+.pilwrap {
+  position: relative;
+}
+.pilcrow {
+  font: 12px Arial;
+  text-decoration: none;
+  color: #454545;
+  position: absolute;
+  top: 3px; left: -20px;
+  padding: 1px 2px;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s linear;
+}
+td.docs:hover .pilcrow {
+  opacity: 1;
+}
+td.code, th.code {
+  padding: 0px 15px 15px 25px;
+  margin: 0 0 15px 0;
+  width: 100%;
+  vertical-align: top;
+  background: #f5f5ff;
+  border-left: 1px solid #e5e5ee;
+}
+pre, tt, code {
+  font-size: 14px;
+  font-family: Menlo, Monaco, Consolas, "Lucida Console", monospace;
+  margin: 0; padding: 0;
+}
+
+/*
+ * Default styles for the colorize egg.
+ *
+ * Lifted a-little-less-so-but-still-pretty-shamelessly from the Chicken wiki.
+ */
+.highlight {
+  background-color: #FBFBFB;
+}
+.highlight .symbol, .highlight .default, .highlight .comment {
+  background-color: #FBFBFB;
+  color: #59443C;
+  font-weight: normal;
+}
+.highlight i {
+  font-style: normal;
+}
+.highlight i .symbol {
+  color: #B64926;
+}
+.highlight .paren1, .highlight .paren2, .highlight .paren3, .highlight .paren4, .highlight .paren5, .highlight .paren6 {
+  background-color: inherit;
+}
+.highlight .paren1:hover, .highlight .paren2:hover, .highlight .paren3:hover, .highlight .paren4:hover, .highlight .paren5:hover, .highlight .paren6:hover {
+  color: white;
+  font-weight: bold;
+}
+.highlight .paren1:hover {
+  background-color: #DB7859;
+}
+.highlight .paren2:hover {
+  background-color: #1B804C;
+}
+.highlight .paren3:hover {
+  background-color: #9F214E;
+}
+.highlight .paren4:hover {
+  background-color: #DBA059;
+}
+.highlight .paren5:hover {
+  background-color: #B64926;
+}
+.highlight .paren6:hover {
+  background-color: #64A422;
+}
+.highlight .string {
+  color: #B64926;
+}
+.highlight .comment {
+  color: #8C8281;
+  font-style: italic;
+}

@@ -1,0 +1,5 @@
+(compile -O5 -d2 schematic-cmd.scm -o schematic)
+(let ((prefix (installation-prefix)))
+  (install-program 'schematic
+    `("schematic" ("schematic.css" ,(make-pathname prefix "share/schematic/schematic.css")))
+    '((version "0.0.1"))))
