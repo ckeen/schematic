@@ -9,7 +9,7 @@
   ((*language* l) 'scheme)
   ((*formatter* f) "")
   ((*highlighter* s) "")
-  ((*comment-string* c) ";; ")
+  ((*comment-string* c) "")
   ((*directory*) "html")
   ((*stylesheet*)
    (find (lambda (s) (string-suffix? ".css" s))
@@ -20,11 +20,11 @@
 
   options:
     -h, --help            show this message
+    -l, --language        input language name
     -o, --output          output format (html, ansi)
-    -f, --formatter       external comment string formatting command
+    -f, --formatter       external comment formatting command
     -s, --highlighter     external syntax highlighting command
     -c, --comment-string  comment string format
-    -l, --language        language name (html, built-in colorizer only)
         --stylesheet      alternative stylesheet (html only)
         --directory       output directory (html only)
 
@@ -56,9 +56,29 @@
           (close-input-port i)
           output)))))
 
+;; Return the line comment prefix for the given
+;; language name, or false if it's unrecognized.
+(define (comment-string lang)
+  (case lang
+    ((scheme lisp) ";; ")
+    ((perl python ruby bash sh) "# ")
+    ((java javascript c) "// ")
+    ((erlang matlab) "% ")
+    ((haskell lua) "-- ")
+    (else #f)))
+
+;; Set the comment string for the program.
+;; If one is given at the command line, use that.
+;; Otherwise, use the specified language.
+(define comment-string
+  (let ((cs (*comment-string*)))
+    (cond ((not (string-null? cs)) cs)
+          ((comment-string (*language*)) => identity)
+          (else (die "Unknown language: " (*language*))))))
+
 ;; Load the colorize egg if it's installed and no
 ;; other highlighter was given at the command line.
-(define (use-colorize-egg)
+(define colorizer
   (and (string-null? (*highlighter*))
        (extension-information 'colorize)
        (use colorize)
@@ -91,14 +111,13 @@
       ((HTML html)
        (use sxml-transforms)
        (let ((dir (*directory*))
-             (hilite (or (use-colorize-egg) hilite)))
+             (hilite (or colorizer hilite)))
          (create-directory dir 'w/parents)
          (file-copy
            (*stylesheet*)
            (make-pathname dir "schematic.css")
            'clobber)
          (lambda (reader title)
-           ;; `file` may be a title given at the command line.
            (let lp ((i 1)
                     (rows '()))
              (call-with-values reader
@@ -157,7 +176,7 @@
           ;; Use the file's name as the title, or the
           ;; `--title` argument if reading from stdin.
           (process-file
-            (section-reader (*comment-string*))
+            (section-reader comment-string)
             (cond ((equal? file "-")
                    (if (string-null? (*title*))
                      "stdin"
