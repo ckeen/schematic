@@ -36,7 +36,7 @@ outputs formatted, side-by-side documentation & source code for each.
 
 Two output modes are available, `ansi` and `html`. In `ansi` mode, concatenated
 output for all files is written to stdout. In `html` mode, separate HTML files
-are written to an output directory, along with associated styling. This is the
+are written to an output directory, along with a default stylesheet. This is the
 default behavior.
 
 When specifying input files, a dash represents `stdin`.

@@ -1,0 +1,58 @@
+[[tags: egg]]
+
+== schematic
+
+[[toc:]]
+
+=== Description
+
+docco-style documentation generator
+
+=== Documentation
+
+{{schematic}} is a simple program for generating side-by-side documentation
+& code in the style of [[http://jashkenas.github.com/docco/|docco]].
+
+The source for this egg is available at [[http://github.com/evhan/schematic]].
+
+==== Usage
+
+    schematic [option ...] [file ...]
+
+    options:
+      -h, --help            show this message
+      -l, --language        input language name
+      -o, --output          output format (html, ansi)
+      -f, --formatter       external comment formatting command
+      -s, --highlighter     external syntax highlighting command
+      -c, --comment-string  comment string format
+          --stylesheet      alternative stylesheet (html only)
+          --directory       output directory (html only)
+
+Two output modes are available, {{ansi}} and {{html}}. In {{ansi}} mode, concatenated
+output for all files is written to stdout. In {{html}} mode, separate HTML files
+are written to an output directory, along with a default stylesheet. This is the
+default behavior.
+
+When specifying input files, a dash represents {{stdin}}.
+
+{{--formatter}} and {{--highlighter}} specify external commands that will be
+used to process documentation and code, respectively. {{markdown}} and
+{{highlight}} might be good choices.
+
+{{--language}} specifies the input language. If the language is unrecognized, a
+line comment prefix string can be given explicitly with the {{--comment-string}}
+argument. For example, for Python or Ruby, {{--comment-string "# "}} would give
+the intended results.
+
+=== History
+
+* 0.1 Initial
+
+=== Author
+
+[[Evan Hanson]]
+
+=== License
+
+3-Clause BSD.
