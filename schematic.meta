@@ -1,6 +1,5 @@
 ((license "BSD")
  (category doc-tools)
  (author "Evan Hanson")
- (synopsis "Literate-programming documentation tool")
- (depends easy-args fmt colorize sxml-transforms)
- (hidden))
+ (synopsis "docco-style documentation generator")
+ (depends easy-args fmt colorize sxml-transforms))
