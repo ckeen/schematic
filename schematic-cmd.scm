@@ -24,6 +24,7 @@
     -o, --output          output format (html, ansi)
     -f, --formatter       external comment formatting command
     -s, --highlighter     external syntax highlighting command
+    -t, --title           title for output when reading from stdin
     -c, --comment-string  comment string format
         --stylesheet      alternative stylesheet (html only)
         --directory       output directory (html only)
@@ -80,7 +81,6 @@
 ;; other highlighter was given at the command line.
 (define colorizer
   (and (string-null? (*highlighter*))
-       (extension-information 'colorize)
        (use colorize)
        (lambda (s) (html-colorize (*language*) s))))
 
@@ -89,7 +89,7 @@
         (hilite (maybe-external (*highlighter*))))
     (case (*output*)
       ;; ANSI goes to stdout.
-      ((ANSI ansi)
+      ((ansi)
        (use fmt)
        (let ((width 0.65)
              (sep " | "))
@@ -108,7 +108,7 @@
       ;; I don't really like this difference in behavior,
       ;; but we have to put the stylesheet somewhere...
       ;; Maybe inline?
-      ((HTML html)
+      ((html)
        (use sxml-transforms)
        (let ((dir (*directory*))
              (hilite (or colorizer hilite)))
