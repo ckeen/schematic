@@ -1,6 +1,6 @@
 (use posix files srfi-1 easy-args)
 
-(include "schematic.scm")
+(include "schematic-reader.scm")
 
 (define-arguments
   ((*help* h))
