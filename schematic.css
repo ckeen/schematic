@@ -9,10 +9,10 @@ body {
   margin: 0; padding: 0;
 }
 a {
-  color: #261a3b;
+  color: #204a87;
 }
 a:visited {
-  color: #261a3b;
+  color: #204a87;
 }
 p {
   margin: 0 0 15px 0;
@@ -128,21 +128,19 @@ pre, tt, code {
 /*
  * Default styles for the colorize egg.
  *
- * Lifted a-little-less-so-but-still-pretty-shamelessly from the Chicken wiki.
+ * Uses the Tango colorscheme.
  */
+
 .highlight i {
   background-color: #F5F5FF;
 }
 .highlight .symbol, .highlight .default, .highlight .comment {
   background-color: #F5F5FF;
-  color: #59443C;
+  color: #333333;
   font-weight: normal;
 }
 .highlight i {
   font-style: normal;
-}
-.highlight i .symbol {
-  color: #B64926;
 }
 .highlight .paren1, .highlight .paren2, .highlight .paren3, .highlight .paren4, .highlight .paren5, .highlight .paren6 {
   background-color: inherit;
@@ -151,28 +149,36 @@ pre, tt, code {
   color: white;
   font-weight: bold;
 }
-.highlight .paren1:hover {
-  background-color: #DB7859;
+.highlight .paren1:hover { background-color: #204a87; }
+.highlight .paren2:hover { background-color: #4e9a06; }
+.highlight .paren3:hover { background-color: #5c3566; }
+.highlight .paren4:hover { background-color: #ce5c00; }
+.highlight .paren5:hover { background-color: #a40000; }
+.highlight .paren6:hover { background-color: #8f5902; }
+.highlight .symbol {
+  color: #204a87;
+  font-weight: bold;
 }
-.highlight .paren2:hover {
-  background-color: #1B804C;
-}
-.highlight .paren3:hover {
-  background-color: #9F214E;
-}
-.highlight .paren4:hover {
-  background-color: #DBA059;
-}
-.highlight .paren5:hover {
-  background-color: #B64926;
-}
-.highlight .paren6:hover {
-  background-color: #64A422;
-}
-.highlight .string {
-  color: #B64926;
+.highlight .variable {
+  color: #ce5c00;
 }
 .highlight .comment {
-  color: #8C8281;
+  color: #8f5902;
   font-style: italic;
+}
+.highlight .character {
+  color: #4e9a06;
+  font-weight: bold;
+}
+.highlight .string {
+  color: #4e9a06;
+}
+.highlight .special {
+  color: #ce5c00;
+}
+.highlight .diff-added {
+  color: #4e9a06;
+}
+.highlight .diff-deleted {
+  color: #a40000;
 }
