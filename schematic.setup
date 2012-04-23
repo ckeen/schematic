@@ -2,4 +2,4 @@
 (let ((prefix (installation-prefix)))
   (install-program 'schematic
     `("schematic" ("schematic.css" ,(make-pathname prefix "share/schematic/schematic.css")))
-    '((version "0.0.1"))))
+    '((version "0.0.2"))))
